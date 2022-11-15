@@ -1,0 +1,17 @@
+<div>
+
+  <input type="text" id="title">
+  <input type="text" id="content">
+  <button>Add</button>
+</div>
+
+<div *ngFor="let item of todoItems; let i = index"
+>
+  <div>
+    {{item.title}}
+    {{item.content}}
+    <input type="checkbox" id="status" [(ngModel)]="todoItems[i].finished" (change)="handleStatusChange(item)">
+    <label for="status">{{item.finished ? 'Done': 'Not Done'}}</label>
+    <button>Delete</button>
+  </div>
+</div>
