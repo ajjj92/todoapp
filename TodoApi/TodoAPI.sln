@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoAPI", "TodoAPI\TodoAPI.csproj", "{BC05C799-6521-4BA7-ABEE-265414DF999D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbCore", "..\DbCore\DbCore\DbCore.csproj", "{0B4E2098-BA3E-4292-80C8-5299FD282A87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC05C799-6521-4BA7-ABEE-265414DF999D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC05C799-6521-4BA7-ABEE-265414DF999D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC05C799-6521-4BA7-ABEE-265414DF999D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC05C799-6521-4BA7-ABEE-265414DF999D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B4E2098-BA3E-4292-80C8-5299FD282A87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B4E2098-BA3E-4292-80C8-5299FD282A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B4E2098-BA3E-4292-80C8-5299FD282A87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B4E2098-BA3E-4292-80C8-5299FD282A87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
