@@ -10,21 +10,41 @@ import {first} from 'rxjs';
 })
 export class TodoItemListComponent implements OnInit {
 
+  newTodo: { title: string, content: string } = {title: '', content: ''};
   todoItems: TodoItem [] = [];
 
   constructor(private todoService: TodoItemService) {
   }
 
   ngOnInit(): void {
+    this.fetchTodoItems();
+  }
+
+  fetchTodoItems(): void {
     this.todoService.getAll().pipe(first()).subscribe(result => {
-        this.todoItems = result;
-        console.log(result);
-    });
-    this.todoService.test().pipe(first()).subscribe(result => {
+      this.todoItems = result;
       console.log(result);
     });
   }
-  handleStatusChange(todoItem:any) {
-    console.log(todoItem)
+
+  handleStatusChange(todoItem: TodoItem) {
+    console.log(todoItem);
+    this.todoService.updateStatusById(todoItem.id, todoItem.finished).pipe(first()).subscribe(result => {
+      this.fetchTodoItems();
+    });
+  }
+
+  handleDelete(todoItem: TodoItem) {
+    console.log(todoItem);
+    this.todoService.deleteById(todoItem.id).pipe(first()).subscribe(result => {
+      this.fetchTodoItems();
+    });
+  }
+
+  onSubmit(newData: any) {
+    this.todoService.create(newData.title, newData.content).pipe(first()).subscribe(result => {
+      this.fetchTodoItems();
+      this.newTodo = {title:'', content:''}
+    })
   }
 }

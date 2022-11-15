@@ -1,17 +1,44 @@
 <div>
-
-  <input type="text" id="title">
-  <input type="text" id="content">
-  <button>Add</button>
+  <form #myForm="ngForm" (ngSubmit)="onSubmit(newTodo)">
+    <p>
+      <label>Todo Title:</label>
+      <input type="text"
+             name="title"
+             [(ngModel)]="newTodo.title" required>
+    </p>
+    <p>
+      <label>Todo Content:</label>
+      <input type="text"
+             name="content"
+             [(ngModel)]="newTodo.content" required>
+    </p>
+    <p>
+      <button type="submit" [disabled]="!myForm.valid">Submit</button>
+    </p>
+  </form>
 </div>
+<div>
+  <table>
+    <thead>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Status</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of todoItems; let i = index">
+      <td><b>{{item.title}}</b></td>
+      <td> {{item.content}}</td>
+      <td>
+        <input type="checkbox" id="status" [(ngModel)]="todoItems[i].finished" (change)="handleStatusChange(item)">
+        <label for="status">{{item.finished ? 'Done' : 'Not Done'}}</label>
+      </td>
+      <td>
+        <button (click)="handleDelete(item)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
 
-<div *ngFor="let item of todoItems; let i = index"
->
-  <div>
-    {{item.title}}
-    {{item.content}}
-    <input type="checkbox" id="status" [(ngModel)]="todoItems[i].finished" (change)="handleStatusChange(item)">
-    <label for="status">{{item.finished ? 'Done': 'Not Done'}}</label>
-    <button>Delete</button>
-  </div>
+  </table>
+
 </div>

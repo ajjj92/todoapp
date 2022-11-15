@@ -27,15 +27,20 @@ const mockData : TodoItem [] = [ {
   providedIn: 'root'
 })
 export class TodoItemService {
-  baseUrl = "https://localhost:7085"
+  baseUrl = "https://localhost:7085/"
   apiUrl = this.baseUrl+"TodoItem"
   constructor( private http: HttpClient) { }
 
   getAll() {
-    // return this.http.get<TodoItem[]>(this.apiUrl);
-    return of(mockData)
+    return this.http.get<TodoItem[]>(`${this.apiUrl}/GetAll`);
   }
-  test() {
-    return this.http.get<any>(this.baseUrl + "/WeatherForecast")
+  updateStatusById(id:string, status:boolean) {
+    return this.http.patch<any>(`${this.apiUrl}/UdpateStatus/${id}`, status);
+  }
+  deleteById(id:string,) {
+    return this.http.delete<any>(`${this.apiUrl}/Delete/${id}`);
+  }
+  create(title:string,content:string) {
+    return this.http.post<any>(`${this.apiUrl}`,{title,content});
   }
 }
