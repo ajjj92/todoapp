@@ -23,7 +23,7 @@ export class TodoItemListComponent implements OnInit {
   fetchTodoItems(): void {
     this.todoService.getAll().pipe(first()).subscribe(result => {
       this.todoItems = result;
-      console.log(result);
+      console.log(this.todoItems);
     });
   }
 
