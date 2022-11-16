@@ -29,7 +29,7 @@ public class TodoItemController : ControllerBase
             Created = c.Created,
             Modified = c.Modified,
             Modifier = c.Modifier,
-            Finished = c.Finished
+            Finished = c.Finished == 1
         }).ToList();
         return result;
     }

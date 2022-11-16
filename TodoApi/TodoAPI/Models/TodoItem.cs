@@ -6,5 +6,5 @@ public class TodoItem:CreateTodo
     public DateTime Created { get; set; }
     public DateTime Modified { get; set; }
     public string Modifier { get; set; }
-    public byte Finished { get; set; }
+    public bool Finished { get; set; }
 }
